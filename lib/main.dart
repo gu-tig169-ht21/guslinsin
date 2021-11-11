@@ -51,7 +51,7 @@ Widget _dropdownMenu() {
   List<String> alt = ['Markera alla', 'Avmarkera alla'];
 
   return PopupMenuButton<String>(
-      icon: Icon(Icons.filter_list),
+      icon: Icon(Icons.filter_list_alt),
       onSelected: altAction,
       itemBuilder: (BuildContext context) {
         return alt.map((String alt) {
