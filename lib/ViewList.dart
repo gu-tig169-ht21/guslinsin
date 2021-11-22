@@ -16,10 +16,8 @@ class ViewList extends StatelessWidget {
               child: CheckboxListTile(
                 activeColor: Colors.grey,
                 value: state.getCheckbox(index),
-                onChanged: (bool newValue) {
+                onChanged: (bool? newValue) {
                   state.setCheckbox(index, newValue);
-
-                  // Provider.of<Model>(context, listen: false).setCheckbox(index);
                 },
                 title: Text(
                   state.list[index].thingsToDo,

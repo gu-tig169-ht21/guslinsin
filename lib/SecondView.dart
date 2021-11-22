@@ -1,4 +1,4 @@
-import 'package:my_first_app/Model.dart';
+import 'Model.dart';
 import 'package:flutter/material.dart';
 
 class SecondView extends StatelessWidget {

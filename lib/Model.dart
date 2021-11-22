@@ -4,7 +4,7 @@ class Item {
   String thingsToDo;
   bool checkBoxIs;
 
-  Item({this.thingsToDo, this.checkBoxIs: false});
+  Item({required this.thingsToDo, this.checkBoxIs: false});
 }
 
 class Model extends ChangeNotifier {
