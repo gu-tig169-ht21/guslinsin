@@ -32,9 +32,9 @@ class Model extends ChangeNotifier {
   }
 
   List<Item> filteredList(String filter) {
-    if (filter == "Markera Alla") {
+    if (filter == "Avklarat") {
       return _list.where((object) => object.checkBoxIs == true).toList();
-    } else if (filter == "Avmarkera Alla") {
+    } else if (filter == "Ej avklarat") {
       return _list.where((object) => object.checkBoxIs == false).toList();
     }
 

@@ -42,7 +42,7 @@ class MainView extends StatelessWidget {
 }
 
 Widget _dropdownMenu() {
-  List<String> choices = ['Markera Alla', 'Avmarkera Alla'];
+  List<String> choices = ['Avklarat', 'Ej avklarat'];
 
   return Padding(
     padding: const EdgeInsets.only(right: 20.0),
