@@ -1,5 +1,5 @@
 import 'dart:convert';
-import 'model.dart';
+import 'Model.dart';
 import 'package:http/http.dart' as http;
 
 class ApiRequest {
@@ -8,7 +8,7 @@ class ApiRequest {
   static final String myKey = 'cffc27f4-7c6b-4283-8c80-7871f217f64d';
 
   static Future<List<Item>> getMyItems() async {
-    http.Response response = await http.get(myUrl + '?key=' + myKey);
+    http.Response response = await http.get(myUrl + '/todos?key=' + myKey);
 
     return _myResponseList(response);
   }
@@ -16,7 +16,7 @@ class ApiRequest {
   //post
   static Future<List<Item>> postMyItems(Item item) async {
     http.Response response = await http.post(
-      myUrl + '?key=' + myKey,
+      myUrl + '/todos?key=' + myKey,
       headers: <String, String>{"Content-type": "application/json"},
       body: jsonEncode(<String, dynamic>{
         "title": item.name,
@@ -30,7 +30,7 @@ class ApiRequest {
 // Put
   static Future<List<Item>> putMyItem(Item item) async {
     http.Response response = await http.put(
-      myUrl + '/${item.id}?key=' + myKey,
+      myUrl + '/${item.id}/todos?key=' + myKey,
       headers: <String, String>{"Content-Type": "application/json"},
       body: jsonEncode(<String, dynamic>{
         "title": item.name,
@@ -42,7 +42,7 @@ class ApiRequest {
 
   static Future<List<Item>> deleteMyItems(Item item) async {
     http.Response response =
-        await http.delete(myUrl + '/${item.id}?key=' + myKey);
+        await http.delete(myUrl + '/todos/${item.id}?key=' + myKey);
     return _myResponseList(response);
   }
 

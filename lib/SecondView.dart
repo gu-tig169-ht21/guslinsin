@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'model.dart';
+import 'Model.dart';
 
 class SecondView extends StatelessWidget {
   final textEditingController = new TextEditingController();

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'listview.dart';
 import 'package:provider/provider.dart';
-import './model.dart';
+import 'Model.dart';
 import 'SecondView.dart';
 
 void main() {

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'model.dart';
+import 'Model.dart';
 import 'package:provider/provider.dart';
-import './model.dart';
 
 class ItemList extends StatefulWidget {
   final List<Item> list;
