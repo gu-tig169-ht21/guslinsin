@@ -1,41 +1,42 @@
 import 'package:flutter/material.dart';
+import 'ApiRequest.dart';
 
 class Item {
-  String thingsToDo;
-  bool checkBoxIs;
+  String id;
+  String name;
+  bool isDone;
 
-  Item({required this.thingsToDo, this.checkBoxIs: false});
+  Item({this.id, this.name, this.isDone = false});
 }
 
-class Model extends ChangeNotifier {
+class MyState extends ChangeNotifier {
   List<Item> _list = [];
 
-  List<Item> get list => _list;
-
-  bool getCheckbox(index) {
-    return _list[index].checkBoxIs;
-  }
-
-  void addToList(Item object) {
-    _list.add(object);
+  void postMyList() async {
+    this._list = await ApiRequest.getMyItems();
     notifyListeners();
   }
 
-  void removeFromList(Item object) {
-    _list.remove(object);
+  void addItems(Item item) async {
+    _list = (await ApiRequest.postMyItems(item)).cast<Item>();
     notifyListeners();
   }
 
-  void setCheckbox(index, input) {
-    _list[index].checkBoxIs = input;
+  void putMyItems(Item item) async {
+    _list = await ApiRequest.putMyItem(item);
+    notifyListeners();
+  }
+
+  void removeMyItems(Item item) async {
+    _list = await ApiRequest.deleteMyItems(item);
     notifyListeners();
   }
 
   List<Item> filteredList(String filter) {
-    if (filter == "Avklarat") {
-      return _list.where((object) => object.checkBoxIs == true).toList();
-    } else if (filter == "Ej avklarat") {
-      return _list.where((object) => object.checkBoxIs == false).toList();
+    if (filter == "Done") {
+      return _list.where((item) => item.isDone == true).toList();
+    } else if (filter == "Not Done") {
+      return _list.where((item) => item.isDone == false).toList();
     }
 
     return _list;
