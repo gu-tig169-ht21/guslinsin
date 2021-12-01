@@ -30,7 +30,7 @@ class ApiRequest {
 // Put
   static Future<List<Item>> putMyItem(Item item) async {
     http.Response response = await http.put(
-      myUrl + '/${item.id}/todos?key=' + myKey,
+      myUrl + '/todos/${item.id}?key=' + myKey,
       headers: <String, String>{"Content-Type": "application/json"},
       body: jsonEncode(<String, dynamic>{
         "title": item.name,
