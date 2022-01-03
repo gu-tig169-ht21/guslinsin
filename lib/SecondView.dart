@@ -3,7 +3,12 @@ import 'package:provider/provider.dart';
 
 import 'Model.dart';
 
-class SecondView extends StatelessWidget {
+class SecondView extends StatefulWidget {
+  @override
+  State<SecondView> createState() => _SecondViewState();
+}
+
+class _SecondViewState extends State<SecondView> {
   final textEditingController = new TextEditingController();
 
   @override
@@ -82,7 +87,7 @@ class SecondView extends StatelessWidget {
           onPressed: () {
             Provider.of<MyState>(context, listen: false)
                 .addItems(Item(name: textEditingController.text));
-            Navigator.popAndPushNamed(context, "/");
+            Navigator.pop(context, "/");
           },
           child: Text('Lägg till'),
           color: Colors.pink[300],
